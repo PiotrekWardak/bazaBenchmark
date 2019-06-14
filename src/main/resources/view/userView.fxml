@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#UpdateDataEvent" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pwn.reaktor.dziekanat.controller.UserController">
+   <children>
+      <Label fx:id="lbLogin" layoutX="94.0" layoutY="106.0" prefHeight="17.0" prefWidth="212.0" text="Witaj:" />
+      <Button fx:id="btnUpdateData" layoutX="168.0" layoutY="267.0" mnemonicParsing="false" onMouseClicked="#UpdateDataEvent" text="Update Data" />
+      <Button fx:id="btnSurvey" layoutX="168.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#SurveyEvent" prefHeight="25.0" prefWidth="83.0" text="Survey" />
+      <Button fx:id="btnSurveyTable" layoutX="148.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#SurveyTableEvent" prefHeight="25.0" prefWidth="122.0" text="Survey Table" />
+   </children>
+</AnchorPane>
