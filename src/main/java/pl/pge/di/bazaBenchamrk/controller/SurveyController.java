@@ -133,7 +133,7 @@ public class SurveyController {
     @FXML
     void UpdateRekorduEvent(MouseEvent event) throws Exception {
 
-        List<Survey> survey = surveyService.getlastSurveysRecord();
+        List <Survey> survey = surveyService.findselectedSurvey();
         int index =0;
         surveyService.update(changeValues(survey.get(index)));
 
