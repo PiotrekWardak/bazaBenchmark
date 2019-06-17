@@ -20,6 +20,8 @@ import pl.pge.di.bazaBenchamrk.service.LoginService;
 
 import java.io.IOException;
 
+import static pl.pge.di.bazaBenchamrk.controller.SignUpController.DEPARTAMENT_INWESTYCJI_PGE_S_A;
+
 public class GlownyController {
 
     @FXML
@@ -52,12 +54,14 @@ public class GlownyController {
             tfPassword.setVisible(true);
             pfPassword.setVisible(false);
             btnShow.setText("Ukryj hasło");
+
         }
         else if ("Ukryj hasło".equalsIgnoreCase(btnShow.getText())){
             pfPassword.setText(tfPassword.getText());
             pfPassword.setVisible(true);
             tfPassword.setVisible(false);
             btnShow.setText("Pokaż hasło");
+
         }
     }
 
@@ -93,7 +97,6 @@ public class GlownyController {
         User user = loginService.login(login,pass);
         if(user!=null){
 
-//            RoleEnum role = user.getRole();
             RoleEnum role = user.getRole();
             System.out.println("Zalogowano użytkownika: "+ login + " o roli: " + role);
 
@@ -103,18 +106,11 @@ public class GlownyController {
             {
                 Stage primaryStage = BazaBenchmarkMain.getPrimaryStage();
                 Parent root = FXMLLoader.load(getClass().getResource("/view/userView.fxml"));
-                primaryStage.setTitle("Departament Inwestycji PGE S.A. - widok Admin");
+                primaryStage.setTitle(DEPARTAMENT_INWESTYCJI_PGE_S_A);
                 primaryStage.setScene((new Scene(root)));
                 primaryStage.show();
             }
-//            else if(RoleEnum.ROLE_ADMIN.equals(role))
-//            {
-//                Stage primaryStage = BazaBenchmarkMain.getPrimaryStage();
-//                Parent root = FXMLLoader.load(getClass().getResource("/view/tabelaZbiorczaView.fxml"));
-//                primaryStage.setTitle("Admin view");
-//                primaryStage.setScene((new Scene(root)));
-//                primaryStage.show();
-//            }
+
         }
 
     }

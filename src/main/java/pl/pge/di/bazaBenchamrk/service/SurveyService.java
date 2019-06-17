@@ -8,7 +8,22 @@ import pl.pge.di.bazaBenchamrk.utils.HibernateUtils;
 
 import java.util.List;
 
+import static pl.pge.di.bazaBenchamrk.controller.SurveyController.numerWybranegoRekordu;
+
 public class SurveyService {
+
+
+    public void update(Survey survey) {
+
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        Transaction trx = session.beginTransaction();
+
+        session.update(survey);
+
+        trx.commit();
+        session.close();
+
+    }
 
     public void save(Survey survey) {
 
@@ -65,6 +80,22 @@ public class SurveyService {
 
         return surveys;
 
-
     }
+
+    public List<Survey> findselectedSurvey(){
+
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        Transaction trx = session.beginTransaction();
+
+        String sql = "Select s from Survey s where s.id=:id";
+        Query query = session.createQuery(sql);
+        query.setParameter("id",(long)numerWybranegoRekordu);
+        List<Survey>  selectedSurvey = query.getResultList();
+
+        trx.commit();
+        session.close();
+        return selectedSurvey;
+    }
+
+
 }

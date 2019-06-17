@@ -35,7 +35,7 @@ public class UserController {
 
         Stage primaryStage = BazaBenchmarkMain.getPrimaryStage();
         Parent root = FXMLLoader.load(getClass().getResource("/view/tabelaZbiorczaView.fxml"));
-        primaryStage.setTitle("List of surveys");
+        primaryStage.setTitle("List of Data");
         primaryStage.setScene((new Scene(root)));
         primaryStage.show();
     }

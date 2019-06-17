@@ -13,7 +13,6 @@ import pl.pge.di.bazaBenchamrk.BazaBenchmarkMain;
 import pl.pge.di.bazaBenchamrk.model.Report_1;
 import pl.pge.di.bazaBenchamrk.service.ReportService;
 import pl.pge.di.bazaBenchamrk.service.UserService;
-import pl.pge.di.bazaBenchamrk.model.Address;
 import pl.pge.di.bazaBenchamrk.model.User;
 import pl.pge.di.bazaBenchamrk.model.utils.CurrentUser;
 
@@ -78,7 +77,7 @@ public class UpdateUserDataController {
         //student.setFirstName(tfFirstName.getText());
        // student.setLastName(tfLastName.getText());
 
-        Address address = new Address(tfStreet.getText(), tfCity.getText());
+      //  Address address = new Address(tfStreet.getText(), tfCity.getText());
 
         //student.setAddress(address);
 

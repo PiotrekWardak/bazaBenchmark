@@ -13,20 +13,19 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import pl.pge.di.bazaBenchamrk.BazaBenchmarkMain;
 import pl.pge.di.bazaBenchamrk.model.Survey;
-import pl.pge.di.bazaBenchamrk.model.User;
-import pl.pge.di.bazaBenchamrk.model.dto.StudentDTO;
 import pl.pge.di.bazaBenchamrk.model.utils.CurrentUser;
 import pl.pge.di.bazaBenchamrk.service.SurveyService;
-import pl.pge.di.bazaBenchamrk.service.UserService;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+
 import java.util.List;
 
 import static pl.pge.di.bazaBenchamrk.controller.SignUpController.DEPARTAMENT_INWESTYCJI_PGE_S_A;
+import static pl.pge.di.bazaBenchamrk.controller.SurveyController.czyUpdate;
+import static pl.pge.di.bazaBenchamrk.controller.SurveyController.numerWybranegoRekordu;
 
 public class TabelaZbiorczaController {
 
@@ -105,6 +104,47 @@ public class TabelaZbiorczaController {
     @FXML
     private Button btnGoBack;
 
+    @FXML
+    private Button btnDeleteSelected;
+
+    @FXML
+    private Button btnUpdateSelected;
+
+
+    @FXML
+    void UpdateSelectedEvent(MouseEvent event) throws Exception {
+
+
+        if(tvSurvey.getSelectionModel()!=null && tvSurvey.getSelectionModel().getSelectedItem()!=null){
+            Survey selectedItem = tvSurvey.getSelectionModel().getSelectedItem();
+            numerWybranegoRekordu = (int)selectedItem.getId();
+            czyUpdate = true;
+
+            Stage primaryStage = BazaBenchmarkMain.getPrimaryStage();
+            Parent root = FXMLLoader.load(getClass().getResource("/view/surveyView.fxml"));
+            primaryStage.setTitle("Survey");
+            primaryStage.setScene((new Scene(root)));
+            primaryStage.show();
+
+        }
+
+    }
+
+
+    @FXML
+    void DeleteSelectedEvent(MouseEvent event) throws Exception{
+
+
+
+        if(tvSurvey.getSelectionModel()!=null && tvSurvey.getSelectionModel().getSelectedItem()!=null){
+            Survey selectedItem = tvSurvey.getSelectionModel().getSelectedItem();
+            surveyService.delete(selectedItem);
+            initDataTable();
+        }
+
+    }
+
+
     SurveyService surveyService = new SurveyService();
 
     @FXML
@@ -141,7 +181,8 @@ public class TabelaZbiorczaController {
         primaryStage.setScene((new Scene(root)));
         primaryStage.show();
 
-    }
+
+        }
 
     public void initialize(){
 
@@ -183,3 +224,7 @@ public class TabelaZbiorczaController {
     }
 
 }
+
+
+
+

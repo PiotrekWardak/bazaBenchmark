@@ -18,7 +18,6 @@ public class Survey {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    //@Column(nullable = false, name = "technology")
     @Column(name = "technology")
     private String technology;
     private String overnight;

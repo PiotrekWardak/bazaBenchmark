@@ -19,6 +19,8 @@ import java.util.List;
 
 public class ReportController {
 
+
+
     public static final String InformacjaDodawanieRaportuGdyBlad = "Musisz podać co najmniej Tytuł Raportu oraz rok publikacji";
     @FXML
     private Button btnGoBack;

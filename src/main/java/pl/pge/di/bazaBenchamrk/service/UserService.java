@@ -5,7 +5,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import pl.pge.di.bazaBenchamrk.model.RoleEnum;
 import pl.pge.di.bazaBenchamrk.model.User;
-import pl.pge.di.bazaBenchamrk.model.dto.StudentDTO;
+
 import pl.pge.di.bazaBenchamrk.utils.HibernateUtils;
 
 import java.util.List;
@@ -56,21 +56,21 @@ public class UserService {
         return admins;
     }
 
-    public List<StudentDTO> getAllStudent(){
-        Session session = HibernateUtils.getSessionFactory().openSession();
-
-        Transaction trx = session.beginTransaction();
-        //JPQL hibernate daje mozliwosc do zmapowania go od razu na klase ktora nie jest encja
-      String hql = "Select new pl.pge.di.bazaBenchamrk.model.dto.StudentDTO(s.id,u.login,u.active, s.firstName, s.lastName, s.address.street,s.address.city) from " +
-              "User u inner join u.student s where u.role = ROLE_STANDARD_USER";
-
-      Query query = session.createQuery(hql);
-      List<StudentDTO> students = query.list();
-
-        trx.commit();
-        session.close();
-        return students;
-    }
+//    public List<StudentDTO> getAllStudent(){
+//        Session session = HibernateUtils.getSessionFactory().openSession();
+//
+//        Transaction trx = session.beginTransaction();
+//        //JPQL hibernate daje mozliwosc do zmapowania go od razu na klase ktora nie jest encja
+//      String hql = "Select new pl.pge.di.bazaBenchamrk.model.dto.StudentDTO(s.id,u.login,u.active, s.firstName, s.lastName, s.address.street,s.address.city) from " +
+//              "User u inner join u.student s where u.role = ROLE_STANDARD_USER";
+//
+//      Query query = session.createQuery(hql);
+//      List<StudentDTO> students = query.list();
+//
+//        trx.commit();
+//        session.close();
+//        return students;
+//    }
 
 
 

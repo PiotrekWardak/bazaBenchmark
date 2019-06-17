@@ -36,7 +36,7 @@
         </columns>
       </TableView>
       <Label layoutY="84.0" text="Dane benchmark" />
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="552.0">
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1425.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -52,5 +52,7 @@
         </menus>
       </MenuBar>
       <Button fx:id="btnGoBack" layoutX="19.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#GoBackEvent" text="Wróć" />
+      <Button fx:id="btnDeleteSelected" layoutX="64.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#DeleteSelectedEvent" text="Usuń Zaznaczone" />
+      <Button fx:id="btnUpdateSelected" layoutX="173.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#UpdateSelectedEvent" text="Update Zaznaczone" />
    </children>
 </AnchorPane>
