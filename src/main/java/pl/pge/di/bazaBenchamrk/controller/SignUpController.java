@@ -14,6 +14,7 @@ package pl.pge.di.bazaBenchamrk.controller;
 
 public class SignUpController {
 
+    public static final String DEPARTAMENT_INWESTYCJI_PGE_S_A = "Departament Inwestycji PGE S.A.";
     @FXML
     private TextField tfNewLogin;
 
@@ -33,7 +34,7 @@ public class SignUpController {
         String pass =tfNewPassword.getText();
 
         int id = UserService.addToDB(login,pass);
-        System.out.println("DOdano użytkownika o id: "+ id);
+        System.out.println("Dodano użytkownika o id: "+ id);
 
 
 
@@ -44,7 +45,7 @@ public class SignUpController {
 
         Stage primaryStage = BazaBenchmarkMain.getPrimaryStage();
         Parent root = FXMLLoader.load(getClass().getResource("/view/glownyView.fxml"));
-        primaryStage.setTitle("Dziekanat");
+        primaryStage.setTitle(DEPARTAMENT_INWESTYCJI_PGE_S_A);
         primaryStage.setScene((new Scene(root)));
         primaryStage.show();
     }

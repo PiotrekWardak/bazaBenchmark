@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SurveyService {
 
-    public void save(Survey survey){
+    public void save(Survey survey) {
 
         Session session = HibernateUtils.getSessionFactory().openSession();
         Transaction trx = session.beginTransaction();
@@ -22,7 +22,7 @@ public class SurveyService {
 
     }
 
-    public void delete(Survey survey){
+    public void delete(Survey survey) {
 
         Session session = HibernateUtils.getSessionFactory().openSession();
         Transaction trx = session.beginTransaction();
@@ -34,24 +34,37 @@ public class SurveyService {
 
     }
 
-    public List<Survey> getSurveyByStudent(int studentId){
+    public List<Survey> get20lastSurveys() {
 
         Session session = HibernateUtils.getSessionFactory().openSession();
         Transaction trx = session.beginTransaction();
 
-        String sql = "Select s from Survey s where s.studentId=:id";
-        Query query = session.createQuery(sql);
-        query.setParameter("id",studentId);
+        String sql = "Select s from Survey s";
+        Query query = session.createQuery(sql).setMaxResults(20);
         List<Survey> surveys = query.list();
 
         trx.commit();
         session.close();
 
         return surveys;
+
+
     }
 
+    public List<Survey> getlastSurveysRecord() {
+
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        Transaction trx = session.beginTransaction();
+
+        String sql = "Select s from Survey s";
+        Query query = session.createQuery(sql).setMaxResults(1);
+        List<Survey> surveys = query.list();
+
+        trx.commit();
+        session.close();
+
+        return surveys;
 
 
-
-
+    }
 }

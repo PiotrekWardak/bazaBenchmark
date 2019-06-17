@@ -12,6 +12,8 @@ import pl.pge.di.bazaBenchamrk.BazaBenchmarkMain;
 
 import java.io.IOException;
 
+import static pl.pge.di.bazaBenchamrk.controller.SignUpController.DEPARTAMENT_INWESTYCJI_PGE_S_A;
+
 public class GoscController {
 
     @FXML
@@ -22,7 +24,7 @@ public class GoscController {
 
         Stage primaryStage = BazaBenchmarkMain.getPrimaryStage();
         Parent root = FXMLLoader.load(getClass().getResource("/view/glownyView.fxml"));
-        primaryStage.setTitle("Departament Inwestycji PGE S.A.");
+        primaryStage.setTitle(DEPARTAMENT_INWESTYCJI_PGE_S_A);
         primaryStage.setScene((new Scene(root)));
         primaryStage.show();
 

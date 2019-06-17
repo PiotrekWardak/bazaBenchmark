@@ -5,10 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 //@Embeddable
 // jesli bysmy chcieli żeby klasa address była używana w kilku tabelach
 // wiekszosc w standardzie w java.persistance

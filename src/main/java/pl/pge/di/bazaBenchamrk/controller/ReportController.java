@@ -19,6 +19,7 @@ import java.util.List;
 
 public class ReportController {
 
+    public static final String InformacjaDodawanieRaportuGdyBlad = "Musisz podać co najmniej Tytuł Raportu oraz rok publikacji";
     @FXML
     private Button btnGoBack;
 
@@ -124,7 +125,7 @@ public class ReportController {
 
     private void showAlertNotCompleted() {
         Alert info =  new Alert(Alert.AlertType.WARNING);
-        info.setContentText("Musisz podać co najmniej Technologię oraz rok raportu");
+        info.setContentText(InformacjaDodawanieRaportuGdyBlad);
         info.setTitle("Błąd");
         info.setHeaderText("Błąd");
         info.show();

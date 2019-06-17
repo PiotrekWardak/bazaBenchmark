@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -8,37 +9,33 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="465.0" prefWidth="552.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pge.di.bazaBenchamrk.controller.TabelaZbiorczaController">
+<AnchorPane prefHeight="465.0" prefWidth="1339.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pge.di.bazaBenchamrk.controller.TabelaZbiorczaController">
    <children>
-      <TableView fx:id="tvStudent" layoutX="33.0" layoutY="101.0" prefHeight="190.0" prefWidth="371.0">
+      <TableView fx:id="tvSurvey" layoutY="101.0" prefHeight="190.0" prefWidth="1425.0">
         <columns>
           <TableColumn fx:id="colidS" prefWidth="31.0" text="ID" />
-          <TableColumn fx:id="colLoginS" prefWidth="37.0" text="Login" />
-            <TableColumn fx:id="colActiveS" prefWidth="40.0" text="Active" />
-            <TableColumn prefWidth="75.0" text="Column X">
-               <columns>
-                  <TableColumn fx:id="colFirstNameS" prefWidth="28.0" text="FirstName" />
-                  <TableColumn fx:id="colLastNameS" prefWidth="29.0" text="Last name" />
-               </columns>
-            </TableColumn>
-            <TableColumn prefWidth="317.0" text="Column X">
-               <columns>
-                  <TableColumn fx:id="colStreetS" prefWidth="81.0" text="Street" />
-                  <TableColumn fx:id="colCityS" prefWidth="94.0" text="City" />
-               </columns>
-            </TableColumn>
+          <TableColumn fx:id="colOvernightS" prefWidth="39.000030517578125" text="Overnight" />
+            <TableColumn fx:id="colCapexNaRokS" prefWidth="100.99996948242188" text="Capex na rok" />
+            <TableColumn fx:id="colCapexRaportNaMWS" prefWidth="116.0" text="Capex raportu/MW" />
+            <TableColumn fx:id="colRokRaportuS" minWidth="0.0" prefWidth="74.0" text="Rok raportu" />
+            <TableColumn fx:id="colWalutaS" prefWidth="45.0" text="Waluta" />
+            <TableColumn fx:id="colCapexWybranyRokkEurNaMWS" prefWidth="44.0" text="Capex2014 kEUR/MW" />
+            <TableColumn fx:id="colFixedOmNaMWS" minWidth="0.0" prefWidth="90.0" text="Fixed OM/MW" />
+            <TableColumn fx:id="colFixedOmWybranyRokKeurNaMWyrS" prefWidth="118.0" text="Fixed OM 2014 kEUR/MW-yr" />
+            <TableColumn fx:id="colVariableOmInMWhS" prefWidth="124.0" text="Variable OM w MWh" />
+            <TableColumn fx:id="colVariableOmWybranyRokEurNaMWhS" prefWidth="76.0" text="Variable OM 2014 kEUR/MWh" />
+            <TableColumn fx:id="colLcoeS" minWidth="0.0" prefWidth="38.0" text="LCOE" />
+            <TableColumn fx:id="colLcoeWybranyRokEurNaMWhS" prefWidth="47.0" text="LCOE 2014 EUR/MWh" />
+            <TableColumn fx:id="colPlanowanieBudowyLataS" minWidth="0.0" prefWidth="51.0" text="Planowanie budowy lata" />
+            <TableColumn fx:id="colBudowaLataS" minWidth="0.0" prefWidth="54.0" text="Budowa lata" />
+            <TableColumn fx:id="colOkresEksploatacjiLataS" prefWidth="67.0" text="Okres eksploatacji lata" />
+            <TableColumn fx:id="colRaportIDS" minWidth="0.0" prefWidth="62.0" text="Raport ID" />
+            <TableColumn fx:id="colRealEscalatorsPercentS" prefWidth="56.0" text="Real Escalators" />
+            <TableColumn fx:id="colCzasPracyPercentS" minWidth="7.0" prefWidth="79.0" text="Czas pracy %" />
+            <TableColumn fx:id="colStopaDyskontaPercentS" prefWidth="110.0" text="Stopa dyskonta %" />
         </columns>
       </TableView>
-      <TableView fx:id="tvAdmin" layoutX="31.0" layoutY="327.0" prefHeight="110.0" prefWidth="340.0">
-        <columns>
-          <TableColumn fx:id="colIDA" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="colLoginA" prefWidth="75.0" text="Login" />
-            <TableColumn fx:id="colRoleA" prefWidth="75.0" text="Role" />
-            <TableColumn fx:id="colActiveA" prefWidth="75.0" text="Active" />
-        </columns>
-      </TableView>
-      <Label layoutX="34.0" layoutY="84.0" text="Studenci" />
-      <Label layoutX="34.0" layoutY="300.0" text="Administratorzy" />
+      <Label layoutY="84.0" text="Dane benchmark" />
       <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="552.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
@@ -54,5 +51,6 @@
           </Menu>
         </menus>
       </MenuBar>
+      <Button fx:id="btnGoBack" layoutX="19.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#GoBackEvent" text="Wróć" />
    </children>
 </AnchorPane>

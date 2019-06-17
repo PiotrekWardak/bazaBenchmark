@@ -27,6 +27,7 @@ package pl.pge.di.bazaBenchamrk.controller;
 
 public class SurveyController {
 
+    public static final String InformacjaDodawanieDanychGdyBlad = "Musisz podać co najmniej Technologię, rok raportu oraz id raportu do ktorego chcesz przypisac rekord";
     @FXML
     private MenuItem mSaveToFile;
 
@@ -69,8 +70,8 @@ public class SurveyController {
     @FXML
     private ComboBox<String> cmbRaportu;
 
-    @FXML
-    private TextArea taPreview;
+//    @FXML
+//    private TextArea taPreview;
 
     @FXML
     private Button btnGoBack;
@@ -124,7 +125,7 @@ public class SurveyController {
     @FXML
     void ClearEvent(ActionEvent event) {
 
-        taPreview.clear();
+        //taPreview.clear();
         cmbTechnologia.setValue(null);
         rbNIE.setSelected(true);
         tfCapexNaRok.clear();
@@ -269,7 +270,7 @@ public class SurveyController {
 
 
     private boolean isNotCompleted() {
-        return cmbTechnologia.getValue()==null || "".equals(tfRokRaportu.getText());
+        return cmbTechnologia.getValue()==null || "".equals(tfRokRaportu.getText()) || cmbRaportu.getValue()==null;
     }
 
     private String getSurveyText() {
@@ -311,7 +312,7 @@ public class SurveyController {
 
     private void showAlertNotCompleted() {
         Alert info =  new Alert(Alert.AlertType.WARNING);
-        info.setContentText("Musisz podać co najmniej Technologię oraz rok raportu");
+        info.setContentText(InformacjaDodawanieDanychGdyBlad);
         info.setTitle("Błąd");
         info.setHeaderText("Błąd");
         info.show();
@@ -332,22 +333,20 @@ public class SurveyController {
            listaWalut.add(i,Currency.values()[i].toString());
 
         }
+        ObservableList<String> waluty = FXCollections.observableArrayList(listaWalut);
+
+
         List<Report_1> reports = reportService.getAllReports();
         ArrayList<String> arrayraporty = new ArrayList<>();
-
         for(Report_1 rep : reports) {
 
             arrayraporty.add(String.valueOf(rep.getId()));
 
         }
 
-
-        ObservableList<String> waluty = FXCollections.observableArrayList(listaWalut);
-
         ObservableList<String> raporty = FXCollections.observableArrayList(arrayraporty);
 
         cmbWaluta.setItems(waluty);
-
         cmbRaportu.setItems(raporty);
 
     }

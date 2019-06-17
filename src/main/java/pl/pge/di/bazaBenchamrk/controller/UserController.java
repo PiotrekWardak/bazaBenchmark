@@ -24,17 +24,17 @@ public class UserController {
     private Button btnSurvey;
 
     @FXML
-    private Button btnSurveyTable;
+    private Button btnTabelaZbiorcza;
 
     @FXML
     private Button btnDodajRaport;
 
 
     @FXML
-    void SurveyTableEvent(MouseEvent event) throws Exception {
+    void TabelaZbiorczaEvent(MouseEvent event) throws Exception {
 
         Stage primaryStage = BazaBenchmarkMain.getPrimaryStage();
-        Parent root = FXMLLoader.load(getClass().getResource("/view/reportView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/tabelaZbiorczaView.fxml"));
         primaryStage.setTitle("List of surveys");
         primaryStage.setScene((new Scene(root)));
         primaryStage.show();
@@ -62,7 +62,7 @@ public class UserController {
 
     public void initialize() {
 
-        lbLogin.setText(lbLogin.getText()+ CurrentUser.getCurrentUser().getLogin());
+        lbLogin.setText(lbLogin.getText() + " " + CurrentUser.getCurrentUser().getLogin() + " posiadasz rolę " + CurrentUser.getCurrentUser().getRole());
     }
 
     @FXML
