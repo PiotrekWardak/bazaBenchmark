@@ -5,10 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import pl.pge.di.bazaBenchamrk.service.UserService;
 import pl.pge.di.bazaBenchamrk.utils.HibernateUtils;
 
-import static pl.pge.di.bazaBenchamrk.controller.SignUpController.DEPARTAMENT_INWESTYCJI_PGE_S_A;
+import static pl.pge.di.bazaBenchamrk.controller.UserController.DEPARTAMENT_INWESTYCJI_PGE_S_A;
+
 
 public class BazaBenchmarkMain extends Application {
 
@@ -17,9 +17,6 @@ public class BazaBenchmarkMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-
-//            UserService userService = new UserService();
-//            userService.addToDBAdmin("di", "rudy102");
 
         setPrimaryStage(primaryStage);
         Parent root = FXMLLoader.load(getClass().getResource("/view/glownyView.fxml"));

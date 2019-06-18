@@ -16,16 +16,18 @@ package pl.pge.di.bazaBenchamrk.controller;
         import pl.pge.di.bazaBenchamrk.model.Currency;
         import pl.pge.di.bazaBenchamrk.model.Report_1;
         import pl.pge.di.bazaBenchamrk.model.Survey;
+        import pl.pge.di.bazaBenchamrk.model.utils.CurrentUser;
         import pl.pge.di.bazaBenchamrk.service.ReportService;
         import pl.pge.di.bazaBenchamrk.service.SurveyService;
 
         import java.io.File;
         import java.io.FileNotFoundException;
+        import java.io.IOException;
         import java.io.PrintWriter;
         import java.util.ArrayList;
         import java.util.List;
-        import java.util.Objects;
-        import java.util.Optional;
+
+        import static pl.pge.di.bazaBenchamrk.controller.UserController.*;
 
 public class SurveyController {
 
@@ -36,12 +38,6 @@ public class SurveyController {
     public static final String InformacjaDodawanieDanychGdyBlad = "Musisz podać co najmniej Technologię, rok raportu oraz id raportu do ktorego chcesz przypisac rekord";
     @FXML
     private MenuItem mSaveToFile;
-
-    @FXML
-    private MenuItem mSaveToDatabase;
-
-    @FXML
-    private MenuItem mClose;
 
     @FXML
     private MenuItem mClear;
@@ -75,9 +71,6 @@ public class SurveyController {
 
     @FXML
     private ComboBox<String> cmbRaportu;
-
-//    @FXML
-//    private TextArea taPreview;
 
     @FXML
     private Button btnGoBack;
@@ -143,6 +136,17 @@ public class SurveyController {
         primaryStage.setTitle("user");
         primaryStage.setScene((new Scene(root)));
         primaryStage.show();
+    }
+
+    @FXML
+    void logoutAction(ActionEvent event) throws IOException {
+        CurrentUser.clean();
+        Stage primaryStage = BazaBenchmarkMain.getPrimaryStage();
+        Parent root = FXMLLoader.load(getClass().getResource("/view/glownyView.fxml"));
+        primaryStage.setTitle(DEPARTAMENT_INWESTYCJI_PGE_S_A);
+        primaryStage.setScene((new Scene(root)));
+        primaryStage.show();
+
     }
 
     private Survey changeValues(Survey s) {
@@ -242,11 +246,6 @@ public class SurveyController {
     }
 
 
-    @FXML
-    void SaveToDataBaseEvent(ActionEvent event) {
-
-        ZapiszDoDB();
-    }
     SurveyService surveyService = new SurveyService();
 
     private void ZapiszDoDB() {
@@ -321,19 +320,10 @@ public class SurveyController {
     @FXML
     void aboutAction(ActionEvent event) {
 
-        Alert info = new Alert(Alert.AlertType.INFORMATION);
-        info.setTitle("About");
-        info.setHeaderText("Instruction");
-        info.setContentText("Instruction for using the form ...");
-        info.show();
+        pomoc();
 
     }
 
-    @FXML
-    void closeEvent(ActionEvent event) {
-
-        System.exit(0);
-    }
 
 
     private boolean isNotCompleted() {

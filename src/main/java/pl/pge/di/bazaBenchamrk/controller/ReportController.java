@@ -2,6 +2,7 @@ package pl.pge.di.bazaBenchamrk.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,9 +14,14 @@ import javafx.stage.Stage;
 import pl.pge.di.bazaBenchamrk.BazaBenchmarkMain;
 import pl.pge.di.bazaBenchamrk.model.Report_1;
 import pl.pge.di.bazaBenchamrk.model.Survey;
+import pl.pge.di.bazaBenchamrk.model.utils.CurrentUser;
 import pl.pge.di.bazaBenchamrk.service.ReportService;
 
+import java.io.IOException;
 import java.util.List;
+
+import static pl.pge.di.bazaBenchamrk.controller.UserController.DEPARTAMENT_INWESTYCJI_PGE_S_A;
+import static pl.pge.di.bazaBenchamrk.controller.UserController.pomoc;
 
 public class ReportController {
 
@@ -58,14 +64,26 @@ public class ReportController {
     private TextField tfDataRaportu;
 
     @FXML
+    void aboutAction(ActionEvent event) {
+        pomoc();
+
+    }
+
+    @FXML
+    void logoutAction(ActionEvent event) throws IOException {
+        CurrentUser.clean();
+        Stage primaryStage = BazaBenchmarkMain.getPrimaryStage();
+        Parent root = FXMLLoader.load(getClass().getResource("/view/glownyView.fxml"));
+        primaryStage.setTitle(DEPARTAMENT_INWESTYCJI_PGE_S_A);
+        primaryStage.setScene((new Scene(root)));
+        primaryStage.show();
+
+    }
+
+    @FXML
     void DeleteEvent(MouseEvent event) {
 
-//        if(tbvSurvey.getSelectionModel()!=null && tbvSurvey.getSelectionModel().getSelectedItem()!=null){
-//
-//            Survey selectedItem = tbvSurvey.getSelectionModel().getSelectedItem();
-//            surveyService.delete(selectedItem);
-//            initSurveyToTable();
-//        }
+
     }
 
     @FXML

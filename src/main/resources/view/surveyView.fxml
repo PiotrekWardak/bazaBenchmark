@@ -19,19 +19,18 @@
       <Separator layoutX="-2.0" layoutY="44.0" prefHeight="14.0" prefWidth="608.0" />
       <Separator layoutX="190.0" layoutY="50.0" orientation="VERTICAL" prefHeight="349.0" prefWidth="22.0" />
       <Separator layoutX="388.0" layoutY="50.0" orientation="VERTICAL" prefHeight="349.0" prefWidth="22.0" />
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="603.0">
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="617.0">
          <menus>
-            <Menu mnemonicParsing="false" text="File">
+            <Menu mnemonicParsing="false" text="Opcje">
                <items>
-                  <MenuItem fx:id="mSaveToFile" mnemonicParsing="false" onAction="#SaveToFileEvent" text="SaveToFile" />
-                  <MenuItem fx:id="mSaveToDatabase" mnemonicParsing="false" onAction="#SaveToDataBaseEvent" text="SaveToDB" />
-                  <MenuItem fx:id="mClose" mnemonicParsing="false" onAction="#closeEvent" text="Close" />
-                  <MenuItem fx:id="mClear" mnemonicParsing="false" onAction="#ClearEvent" text="Clear" />
+                  <MenuItem fx:id="mSaveToFile" disable="true" mnemonicParsing="false" onAction="#SaveToFileEvent" text="Zapis do pliku" visible="false" />
+                  <MenuItem fx:id="mClear" mnemonicParsing="false" onAction="#ClearEvent" text="Wyczyść Pola" />
+                  <MenuItem fx:id="mLogout" mnemonicParsing="false" onAction="#logoutAction" text="Wyloguj" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Help">
+            <Menu mnemonicParsing="false" text="Pomoc">
                <items>
-                  <MenuItem fx:id="mAbout" mnemonicParsing="false" onAction="#aboutAction" text="About" />
+                  <MenuItem fx:id="mAbout" mnemonicParsing="false" onAction="#aboutAction" text="Pomoc" />
                </items>
             </Menu>
          </menus>

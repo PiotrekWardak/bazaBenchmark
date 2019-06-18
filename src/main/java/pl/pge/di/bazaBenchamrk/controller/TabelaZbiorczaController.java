@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -21,11 +20,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 
+import java.io.IOException;
 import java.util.List;
 
-import static pl.pge.di.bazaBenchamrk.controller.SignUpController.DEPARTAMENT_INWESTYCJI_PGE_S_A;
 import static pl.pge.di.bazaBenchamrk.controller.SurveyController.czyUpdate;
 import static pl.pge.di.bazaBenchamrk.controller.SurveyController.numerWybranegoRekordu;
+import static pl.pge.di.bazaBenchamrk.controller.UserController.pomoc;
 
 public class TabelaZbiorczaController {
 
@@ -96,9 +96,6 @@ public class TabelaZbiorczaController {
     private MenuItem mLogout;
 
     @FXML
-    private MenuItem mClose;
-
-    @FXML
     private MenuItem mAbout;
 
     @FXML
@@ -160,29 +157,26 @@ public class TabelaZbiorczaController {
 
     @FXML
     void aboutAction(ActionEvent event) {
-        Alert info = new Alert(Alert.AlertType.INFORMATION);
-        info.setTitle("About");
-        info.setHeaderText("Instruction");
-        info.setContentText("Instruction for using the form ...");
-        info.show();
+        pomoc();
     }
 
-    @FXML
-    void closeAction(ActionEvent event) {
-        System.exit(0);
-    }
+
+
 
     @FXML
-    void logoutAction(ActionEvent event) throws Exception {
+
+    void logoutAction (ActionEvent event) throws IOException {
         CurrentUser.clean();
         Stage primaryStage = BazaBenchmarkMain.getPrimaryStage();
         Parent root = FXMLLoader.load(getClass().getResource("/view/glownyView.fxml"));
-        primaryStage.setTitle(DEPARTAMENT_INWESTYCJI_PGE_S_A);
+        primaryStage.setTitle(UserController.DEPARTAMENT_INWESTYCJI_PGE_S_A);
         primaryStage.setScene((new Scene(root)));
         primaryStage.show();
 
-
         }
+
+
+
 
     public void initialize(){
 

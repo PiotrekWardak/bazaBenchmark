@@ -20,7 +20,8 @@ import pl.pge.di.bazaBenchamrk.service.LoginService;
 
 import java.io.IOException;
 
-import static pl.pge.di.bazaBenchamrk.controller.SignUpController.DEPARTAMENT_INWESTYCJI_PGE_S_A;
+import static pl.pge.di.bazaBenchamrk.controller.UserController.DEPARTAMENT_INWESTYCJI_PGE_S_A;
+
 
 public class GlownyController {
 
