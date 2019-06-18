@@ -29,6 +29,21 @@ public class UserService {
         return id;
     }
 
+    public static int addToDBAdmin(String login, String pass)
+    {
+        User user = new User(login, pass, RoleEnum.ROLE_ADMIN, true);
+
+        Session session = HibernateUtils.getSessionFactory().openSession();
+
+        Transaction transaction = session.beginTransaction();
+
+        int id = (int) session.save(user);
+
+        transaction.commit();
+        session.close();
+        return id;
+    }
+
     public void update(User user){
 
         Session session = HibernateUtils.getSessionFactory().openSession();

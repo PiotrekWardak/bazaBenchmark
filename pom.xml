@@ -26,14 +26,25 @@
     <!--to wyzej dodajemy tylko dlatego zeby dzialolo na tej wersji intellij-->
 
 <dependencies>
-    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-    <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.15</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+    <!--&lt;!&ndash; https://mvnrepository.com/artifact/mysql/mysql-connector-java &ndash;&gt;-->
+    <!--<dependency>-->
+        <!--<groupId>mysql</groupId>-->
+        <!--<artifactId>mysql-connector-java</artifactId>-->
+        <!--<version>8.0.15</version>-->
+    <!--</dependency>-->
 
+    <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+    <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>1.4.199</version>
+        <scope>test</scope>
+    </dependency>
+
+
+
+
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
     <!--biblioteka hibernate potrzebuje sterownika do bazy danych tj mysql-connector-->
     <dependency>
         <groupId>org.hibernate</groupId>
